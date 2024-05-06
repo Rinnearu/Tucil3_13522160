@@ -9,6 +9,7 @@ Semoga program ini dapat membantu dalam permasalahan word ladder!!!
 
 ## Cara Menjalankan Program
 > You need to have java installed to run this program
+
 Terdapat 2 cara untuk memulai program
 
 ### Melalui File Executable .jar
