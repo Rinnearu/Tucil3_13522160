@@ -1,11 +1,6 @@
 import java.util.*;
 
-public class UCS {
-    String start;
-    String end;
-    Set<String> used_dictionary;
-    List<String> path_result;
-
+public class UCS extends solver{
     public UCS(String startingWord, String goalWord) {
         this.start = startingWord;
         this.end = goalWord;
@@ -28,6 +23,7 @@ public class UCS {
 
             if (currentWord.equals(end)) {
                 constructPath(parentMap);
+                System.out.println("Node yang dikunjungi : " + visited.size());
                 return;
             }
 
@@ -53,7 +49,7 @@ public class UCS {
             }
         }
 
-        System.out.println(" No solution found! Sorry...");
+        System.out.println(" No solution found...");
     }
 
     private void constructPath (Map<String, String> parentMap) {
@@ -66,19 +62,5 @@ public class UCS {
         }
 
         this.path_result = path;
-    }
-
-    public void printResult() {
-        if (path_result == null) {
-            System.out.println(" There are no path found...");
-            return;
-        }
-        System.out.println(" Here is the path:");
-        System.out.print(" ");
-        int i = 0;
-        for (; i < path_result.size() - 1; i++) {
-            System.out.printf("%s -> ", path_result.get(i));
-        }
-        System.out.println(path_result.get(i));
     }
 }

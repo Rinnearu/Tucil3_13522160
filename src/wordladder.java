@@ -14,40 +14,39 @@ public class wordladder {
         if (englishWords.validWords(start_string, end_string)) {
             int method_select = methodSelector();
             startTime = System.currentTimeMillis();
+            solver wordLadderSolver;
             switch (method_select) {
                 case 1:
                     System.out.println("+----------------------------------------------------------+");      
                     System.out.println("| Solving using Uniform-Cost Search                        |");
                     System.out.println("+----------------------------------------------------------+");    
-                    UCS UCSWordLadder = new UCS(start_string, end_string);
-                    UCSWordLadder.findSolution();
-                    UCSWordLadder.printResult();
+                    wordLadderSolver = new UCS(start_string, end_string);
                     break;
                 case 2:
                     System.out.println("+----------------------------------------------------------+");      
                     System.out.println("| Solving using Greedy Best First Search                   |");
                     System.out.println("+----------------------------------------------------------+");    
-                    GBFS GBFSWordLadder = new GBFS(start_string, end_string);
-                    GBFSWordLadder.findSolution();
-                    GBFSWordLadder.printResult();
+                    wordLadderSolver = new GBFS(start_string, end_string);
                     break;
-                case 3:
+                default:
                     System.out.println("+----------------------------------------------------------+");      
                     System.out.println("| Solving using A*                                         |");
                     System.out.println("+----------------------------------------------------------+");
-                    ASTAR ASTARWordLadder = new ASTAR(start_string, end_string);
-                    ASTARWordLadder.findSolution();
-                    ASTARWordLadder.printResult();
-                    break;
-                default:
+                    wordLadderSolver = new ASTAR(start_string, end_string);
                     break;
             }
-            
-        } else {
+            wordLadderSolver.findSolution();
+            wordLadderSolver.printResult();
+        } else if (start_string.equals("CATHY") || end_string.equals("CATHY")) {
+            System.out.println(" Who is *****?");
+        } else if (start_string.equals("CATHERINE") || end_string.equals("CATHERINE")) {
+            System.out.println(" Who is *********?");
+        }
+        else {
             System.out.println(" The strings you have chosen are not eligible");
         }
         long elapsed_time = System.currentTimeMillis() - startTime;
-        System.out.println("\n The program took " + elapsed_time + " ms");
+        System.out.println("\n</> The program took " + elapsed_time + " ms");
         sc.close();
     }
 

@@ -1,17 +1,13 @@
 import java.util.*;
 
-public class GBFS {
-    String start;
-    String end;
-    Set<String> used_dictionary;
-    List<String> path_result;
-
+public class GBFS extends solver{
     public GBFS(String startingWord, String goalWord) {
         this.start = startingWord;
         this.end = goalWord;
         this.used_dictionary = englishWords.getDictionary(this.start.length());
     }
 
+    @Override
     public void findSolution(){
         PriorityQueue<treeNode> active_nodes = new PriorityQueue<>(Comparator.comparingInt(node -> node.cost));
 
@@ -27,6 +23,7 @@ public class GBFS {
 
             if (currentWord.equals(end)) {
                 constructPath(parentMap);
+                System.out.println("Node yang dikunjungi : " + visited.size());
                 return;
             }
 
@@ -51,7 +48,7 @@ public class GBFS {
             }
         }
 
-        System.out.println(" No solution found! Sorry...");
+        System.out.println(" No solution found...");
     }
 
     private void constructPath (Map<String, String> parentMap) {
@@ -64,18 +61,5 @@ public class GBFS {
         }
 
         this.path_result = path;
-    }
-
-    public void printResult() {
-        if (path_result == null) {
-            System.out.println("There are no path found...");
-            return;
-        }
-        System.out.println("Here is the path:");
-        int i = 0;
-        for (; i < path_result.size() - 1; i++) {
-            System.out.printf("%s -> ", path_result.get(i));
-        }
-        System.out.println(path_result.get(i));
     }
 }

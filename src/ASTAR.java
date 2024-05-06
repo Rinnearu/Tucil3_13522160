@@ -1,17 +1,13 @@
 import java.util.*;
 
-class ASTAR {
-    String start;
-    String end;
-    Set<String> used_dictionary;
-    List<String> path_result;
-
+class ASTAR extends solver {
     public ASTAR(String startingWord, String goalWord) {
         this.start = startingWord;
         this.end = goalWord;
         this.used_dictionary = englishWords.getDictionary(this.start.length());
     }
 
+    @Override
     public void findSolution() {
         PriorityQueue<treeNode> active_nodes = new PriorityQueue<>(Comparator.comparingInt(node -> node.cost));
 
@@ -28,6 +24,7 @@ class ASTAR {
 
             if (currentWord.equals(end)) {
                 constructPath(parentMap);
+                System.out.println("Node yang dilewati : " + visited.size());
                 return;
             }
 
@@ -53,7 +50,7 @@ class ASTAR {
             }
         }
 
-        System.out.println(" No solution found! Sorry...");
+        System.out.println(" No solution found...");
     }
 
     private void constructPath (Map<String, String> parentMap) {
@@ -66,18 +63,5 @@ class ASTAR {
         }
 
         this.path_result = path;
-    }
-
-    public void printResult() {
-        if (path_result == null) {
-            System.out.println("There are no path found...");
-            return;
-        }
-        System.out.println("Here is the path:");
-        int i = 0;
-        for (; i < path_result.size() - 1; i++) {
-            System.out.printf("%s -> ", path_result.get(i));
-        }
-        System.out.println(path_result.get(i));
     }
 }
