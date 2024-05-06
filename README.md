@@ -11,13 +11,13 @@ Semoga program ini dapat membantu dalam permasalahan word ladder!!!
 > You need to have java installed to run this program
 Terdapat 2 cara untuk memulai program
 
+> Perlu dilakukan pada direktori awal ./Tucil3_13522160/ karena program butuh lokasi sowpods.txt yang benar
 ### Melalui File Executable .jar
 1. Masuk cmd dan set direktori ke ./Tucil3_13522160/
 2. Masukkan command berikut pada cmd
 ```bash
     java -jar .\bin\Tucil3_13522160.jar
 ```
-> Perlu dilakukan pada direktori tersebut karena butuh lokasi sowpods.txt yang benar
 
 ### Melalui Kompilasi ke Kelas Java
 1. Masuk cmd dan set direktori ke ./Tucil3_13522160/
@@ -26,7 +26,6 @@ Terdapat 2 cara untuk memulai program
     javac -d bin src/*.java
     java -cp bin wordladder
 ```
-> Bisa juga dilakukan dalam direktori lain, asalkan CLASSPATH (-cp) memiliki seluruh kelas dan wordladder sebagain kelas main
 
 Kemudian lakukan hal berikut dalam program
 
