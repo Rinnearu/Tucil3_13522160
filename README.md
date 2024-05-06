@@ -9,6 +9,7 @@ Semoga program ini dapat membantu dalam permasalahan word ladder!!!
 
 ## Cara Menjalankan Program
 > You need to have java installed to run this program
+
 Terdapat 2 cara untuk memulai program
 
 > Perlu dilakukan pada direktori awal ./Tucil3_13522160/ karena program butuh lokasi sowpods.txt yang benar
@@ -37,5 +38,7 @@ Kemudian lakukan hal berikut dalam program
 
 ## Identitas Pembuat
 Nama : Rayhan Ridhar Rahman
+
 NIM : 13522160
+
 Kelas : K-03
