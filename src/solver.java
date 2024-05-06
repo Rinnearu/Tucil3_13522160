@@ -1,4 +1,6 @@
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 abstract class solver {
@@ -11,7 +13,7 @@ abstract class solver {
 
     public void printResult() {
         if (path_result == null) {
-            System.out.println(" There are no path found...");
+            System.out.println(" There are no path found from " + start + " to " + end);
             return;
         }
         System.out.println("Here is the path:");
@@ -20,5 +22,17 @@ abstract class solver {
             System.out.printf("%s -> ", path_result.get(i));
         }
         System.out.println(path_result.get(i));
+    }
+
+    protected void constructPath (Map<String, String> parentMap) {
+        List<String> path = new LinkedList<>();
+        String currentWord = this.end;
+
+        while (currentWord != null) {
+            path.add(0, currentWord);
+            currentWord = parentMap.get(currentWord);
+        }
+
+        this.path_result = path;
     }
 }

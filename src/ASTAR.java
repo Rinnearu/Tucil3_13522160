@@ -52,16 +52,4 @@ class ASTAR extends solver {
 
         System.out.println(" No solution found...");
     }
-
-    private void constructPath (Map<String, String> parentMap) {
-        List<String> path = new LinkedList<>();
-        String currentWord = this.end;
-
-        while (currentWord != null) {
-            path.add(0, currentWord);
-            currentWord = parentMap.get(currentWord);
-        }
-
-        this.path_result = path;
-    }
 }
